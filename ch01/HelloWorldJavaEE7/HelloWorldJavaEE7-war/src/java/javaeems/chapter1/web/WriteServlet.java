@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class WriteServlet extends HttpServlet // este web component intercepta las solicitudes HTTP POST
 {
     @EJB
-    private ModelEJB helloEJB;
+    private ModelEJB helloEJB; // obtenemos una instancia del EJB object
     private static String PUT_MESSAGE = "put_message";
     
     @Override // metodo override de la clase HttpServlet
