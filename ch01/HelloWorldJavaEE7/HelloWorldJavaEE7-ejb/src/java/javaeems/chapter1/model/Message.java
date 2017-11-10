@@ -22,10 +22,10 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
         name="findMessages",
-        query="select m from message m"),
+        query="select m from Message m"),
     @NamedQuery(
         name="deleteMessages",
-        query="delete from message")
+        query="delete from Message")
     })
 
 public class Message implements Serializable 

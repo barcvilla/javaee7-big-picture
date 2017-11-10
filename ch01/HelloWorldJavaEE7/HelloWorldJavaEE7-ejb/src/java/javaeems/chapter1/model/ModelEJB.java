@@ -40,11 +40,13 @@ public class ModelEJB
      */
     public void putUserMessage(String messageString) throws MessageException
     {
+        String id = String.valueOf(messageString.hashCode());
         this.deleteMessage();
         try
         {
+            System.out.println(id);
             String decodedMessage = URLDecoder.decode(messageString, "UTF-8");
-            Message message = new Message("1", "(" + messageString + ")" + " in a DataBase");
+            Message message = new Message(id, "(" + messageString + ")" + " in a DataBase");
             EntityManager em = emf.createEntityManager();
             em.persist(message);
         }
