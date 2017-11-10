@@ -14,7 +14,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
- *
+ * La clase Message es la entiendad para la persistencia de sus datos, lo que permite guardar y recuperar la
+ * informacion de la BD
  * @author barcvilla
  */
 @Entity

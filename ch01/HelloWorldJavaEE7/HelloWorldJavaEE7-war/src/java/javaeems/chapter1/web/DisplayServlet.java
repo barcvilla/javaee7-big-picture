@@ -17,7 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * DisplayServlet es el responsable de generar el contenido HTML que vemos cuando accedemos a la aplicacion y
+ * contiene el ultimo mensaje que fue enviado. 
  * @author barcvilla
  */
 @WebServlet(name="DisplayServlet", urlPatterns={"/DisplayServlet"})

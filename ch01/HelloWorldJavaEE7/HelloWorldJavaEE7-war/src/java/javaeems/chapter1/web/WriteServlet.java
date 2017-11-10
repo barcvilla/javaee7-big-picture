@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * WriteServlet es el responsable de procesar el mensaje que llega desde la web page y pasa el mensaje a la capa
+ * Enterprise Bean para su procesamiento. 
  * @author barcvilla
  */
 // @WebServlet define su posicion en el URI Space.
