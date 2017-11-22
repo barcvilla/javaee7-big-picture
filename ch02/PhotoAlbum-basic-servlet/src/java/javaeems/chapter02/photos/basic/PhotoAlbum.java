@@ -11,7 +11,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Esta clase contiene toda la informacion de la foto a la cual las otras 3 clases servlet utilizan
  * @author barcvilla
  */
 public class PhotoAlbum 
@@ -46,6 +46,14 @@ public class PhotoAlbum
         names.remove(i);
     }
     
+    /**
+     * Se toma un objeto ServletContext como parametro. Un ServletContext es un objeto global en la app web que
+     * representa el web container que alberga a la web app. Una de sus principales caracteristicas, que el contien
+     * un object map de key-value en elcual una web app puede almacenar y recuperar objetos de la aplicacion usando
+     * la llamada de metodos: setAttributes, getAttributes
+     * @param session
+     * @return 
+     */
     public static PhotoAlbum getPhotoAlbum(ServletContext session)
     {
         if(session.getAttribute(ATTRIBUTE_NAME) == null)
