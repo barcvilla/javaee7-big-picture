@@ -51,7 +51,7 @@ public class DisplayAlbumServlet extends HttpServlet
         ServletContext servletContext = request.getServletContext();
         PhotoAlbum pa = PhotoAlbum.getPhotoAlbum(servletContext);
         // lo primero es verificar si el tipo de contenido del request es : multipart/from-data
-        if(request.getContentType() != null && request.getContentType().startsWith("multipart/from-data"))
+        if(request.getContentType() != null && request.getContentType().startsWith("multipart/form-data"))
         {
             // si es asi, se detecta que hay informacion de una foto y el servicio de upload se delega al metodo.
             this.uploadPhoto(request, pa);
@@ -94,7 +94,7 @@ public class DisplayAlbumServlet extends HttpServlet
             this.copyBytes(p.getInputStream(), baos);
             fileName = p.getSubmittedFileName();
         }
-        if("".equals(fileName))
+        if(!"".equals(fileName))
         {
             String photoName = fileName.substring(0, fileName.lastIndexOf("."));
             pa.addPhoto(photoName, baos.toByteArray());

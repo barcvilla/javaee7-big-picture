@@ -20,48 +20,44 @@ public class PhotoAlbum
     private List<byte[]> photoDataList = new ArrayList<byte[]>();
     private List<String> names = new ArrayList<String>();
     
-    private PhotoAlbum()
-    {
-    }
-    
-    public void addPhoto(String name, byte[] bytes) {
-        this.photoDataList.add(bytes);
-        this.names.add(name);
-    }
-    
-    public byte[] getPhotoData(int i) {
-        return (byte[]) photoDataList.get(i);
-    }
-    
-    public String getPhotoName(int i) {
-        return (String) names.get(i);
-    }
-    
-    public int getPhotoCount() {
-        return photoDataList.size();
-    }
-    
-    public void removePhoto(int i) {
-        photoDataList.remove(i);
-        names.remove(i);
-    }
-    
     /**
      * Se toma un objeto ServletContext como parametro. Un ServletContext es un objeto global en la app web que
      * representa el web container que alberga a la web app. Una de sus principales caracteristicas, que el contien
      * un object map de key-value en elcual una web app puede almacenar y recuperar objetos de la aplicacion usando
      * la llamada de metodos: setAttributes, getAttributes
-     * @param session
+     * @param servletContext
      * @return 
      */
-    public static PhotoAlbum getPhotoAlbum(ServletContext session)
+    public static PhotoAlbum getPhotoAlbum(ServletContext servletContext)
     {
-        if(session.getAttribute(ATTRIBUTE_NAME) == null)
+        if(servletContext.getAttribute(ATTRIBUTE_NAME) == null)
         {
             PhotoAlbum pa = new PhotoAlbum();
-            session.setAttribute(ATTRIBUTE_NAME, pa);
+            servletContext.setAttribute(ATTRIBUTE_NAME, pa);
         }
         
-        return (PhotoAlbum)session.getAttribute(ATTRIBUTE_NAME);
+        return (PhotoAlbum)servletContext.getAttribute(ATTRIBUTE_NAME);
+    }
+    
+    public synchronized void addPhoto(String name, byte[] bytes) {
+        this.photoDataList.add(bytes);
+        this.names.add(name);
+    }
+    
+    public synchronized byte[] getPhotoData(int i) {
+        return (byte[]) photoDataList.get(i);
+    }
+    
+    public synchronized String getPhotoName(int i) {
+        return (String) names.get(i);
+    }
+    
+    public synchronized int getPhotoCount() {
+        return photoDataList.size();
+    }
+    
+    public synchronized void removePhoto(int i) {
+        photoDataList.remove(i);
+        names.remove(i);
     }
 }
