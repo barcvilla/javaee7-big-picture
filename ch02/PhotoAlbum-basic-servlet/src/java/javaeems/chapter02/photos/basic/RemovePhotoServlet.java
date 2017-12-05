@@ -44,8 +44,12 @@ public class RemovePhotoServlet extends HttpServlet
          * esta delegando la creacion de HTTP response al DisplayAlbumServlet, el cual procede mostrando las
          * fotos que quedan en el nuevo album de potos reducido.
          */
+        /**
+         * Una vez que la foto ha sido removida, este servlet usa RequestDispatcher para simplemente enviar la
+         * solicitud recibida al servlet DisplayAlbumServlet, la cual lo trata como cualquier solicitud HHTP que ha
+         * venido directo desde el cliente a fin de mostrar el nuevo album de foto actualizado
+         */
         RequestDispatcher rd = request.getRequestDispatcher("DisplayAlbumServlet");
         rd.forward(request, response); 
     }
-
 }
