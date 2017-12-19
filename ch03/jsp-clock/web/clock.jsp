@@ -3,7 +3,12 @@
     Created on : 12/12/2017, 09:16:38
     Author     : barcvilla
 --%>
-
+<!-- Directiva page: rige las propiedades de JSP, como: La salida, almacenamiento en buffer, java import  -->
+<!-- Directiva include: incluye el contenido d otro archivo, podemos incluir el encabezado estandard en JSP-->
+<%--
+Directiva taglib: Esta directiva permite a un JSP declarar que usara etiquetas especiales de una biblioteca.
+Una biblioteca de etiquetas es una coleccion de clases java que formula pequeño fragmentos de salida.
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
