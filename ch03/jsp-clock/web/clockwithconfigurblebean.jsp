@@ -11,14 +11,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
     </head>
-    <body>
+    <body> <!-- declaramos que el JSP usara un JavaBean -->
         <jsp:useBean id="myBean" class="javaeems.chapter3.clockbean.ConfigurableClockBean" />
         <div align='center'>
             <br/>
             Hello there!
             <br/><br/>
             It's been
-            <jsp:getProperty name="myBean" property="currentTimeSinceEpoch" />
+            <jsp:getProperty name="myBean" property="currentTimeSinceEpoch" /> <!-- Aqui llamamos al JavaBean -->
             milliseconds since nidnight, January 1st 1970
             <br/><br/>
             In other words, its <jsp:getProperty name="myBean" property="readableDate" />
